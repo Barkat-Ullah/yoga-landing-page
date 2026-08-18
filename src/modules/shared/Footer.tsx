@@ -36,6 +36,7 @@ export default function Footer() {
           src="https://cdn.jiro.build/Solra/background%20image/BG%20Footer%2002.png"
           alt="Footer Background"
           fill
+          sizes="100vw"
           className="object-cover"
           referrerPolicy="no-referrer"
         />
