@@ -1,6 +1,7 @@
 "use client";
 
 import Services from "./components/Feature";
+import Testimonials from "./components/Testimonial";
 import WhyUs from "./components/WhyChooseUs";
 
 export default function HomePage() {
@@ -8,6 +9,7 @@ export default function HomePage() {
     <>
       <Services />
       <WhyUs />
+      <Testimonials />
     </>
   );
 }
