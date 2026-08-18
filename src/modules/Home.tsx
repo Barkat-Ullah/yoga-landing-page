@@ -1,5 +1,6 @@
 "use client";
 
+import ContactUs from "./components/Contact";
 import Services from "./components/Feature";
 import Team from "./components/Member";
 import Pricing from "./components/Pricing";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Testimonials />
       <Team />
       <Pricing />
+      <ContactUs />
     </>
   );
 }
