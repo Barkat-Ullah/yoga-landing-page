@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yoga Flow Studio — Wellness Landing Template
+
+A modern, animated single-page landing template for a yoga & wellness brand.
+Built with **Next.js 16 (App Router)** on **Turbopack**.
+
+> **Live demo:** https://yoga-barkat.vercel.app/
+
+## Tech Stack
+
+- **Next.js 16** — App Router, Server & Client Components, Turbopack build
+- **React 19 + TypeScript** (strict mode)
+- **Tailwind CSS v4** — via `@tailwindcss/postcss`
+- **Framer Motion** — scroll-reveal & carousel animations
+- **Lucide React** — icon set
+- **next/font/google** — Inter, Crimson Pro, DM Serif Display, Geist
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script          | Description                          |
+| --------------- | ------------------------------------ |
+| `npm run dev`   | Start the dev server                 |
+| `npm run build` | Create an optimized production build |
+| `npm run start` | Serve the production build           |
+| `npm run lint`  | Run ESLint                           |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+src/
+├── app/
+│   ├── layout.tsx              # Root layout (fonts, metadata)
+│   └── (commonLayout)/
+│       ├── layout.tsx          # Header + Footer wrapper
+│       └── page.tsx            # Home page (client)
+├── modules/
+│   ├── Home.tsx                # Composes all page sections
+│   ├── components/             # Page sections
+│   │   ├── Feature.tsx         #   Wellness programs (tab switcher)
+│   │   ├── WhyChooseUs.tsx     #   Stats & why-us
+│   │   ├── Testimonial.tsx     #   Testimonials
+│   │   ├── Member.tsx          #   Coach carousel
+│   │   ├── Pricing.tsx         #   Pricing plans
+│   │   └── Contact.tsx         #   Contact info + form
+│   └── shared/
+│       ├── Header.tsx          # Navbar + hero
+│       └── Footer.tsx          # Footer
+└── app/globals.css             # Tailwind v4 + theme tokens
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- One-page layout: Hero → Programs → Why Us → Testimonials → Coaches → Pricing → Contact
+- Responsive design (mobile / tablet / desktop)
+- Framer Motion scroll-reveal & animated carousels
+- Next.js `<Image>` optimization with remote images (Unsplash + `cdn.jiro.build`, configured via `remotePatterns` in `next.config.ts`)
+- Custom Google fonts via `next/font`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+Deploys to **Vercel** from the repository. The production build is validated with
+`npm run build` (Turbopack) plus `npx tsc --noEmit` and `npm run lint`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- All navigation links, social icons, and CTAs are currently `#` placeholders;
+  section data (programs, coaches, testimonials, pricing) lives in static arrays
+  inside each component and can be swapped for a CMS/API.
+- Some sections still use plain `<img>`/`motion.img` (e.g. `WhyChooseUs.tsx`,
+  `Member.tsx`); replacing them with `next/image` would further improve
+  performance and satisfy `@next/next/no-img-element`.
+
