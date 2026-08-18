@@ -3,7 +3,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { Facebook, Instagram, Youtube, ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Camera,
+  SquarePlay,
+  ThumbsUp,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function ContactUs({
@@ -42,7 +47,7 @@ export default function ContactUs({
     { label: "Phone", value: "(008)1234 4859" },
   ];
 
-  const socialIcons = [Facebook, Instagram, Youtube];
+  const socialIcons = [ThumbsUp, Camera, SquarePlay];
 
   return (
     <>
